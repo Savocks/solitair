@@ -4,8 +4,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-
-typedef int bool;
+#include <stdbool.h>
 /*
  * Definizione delle strutture che servono al gioco.
  */
@@ -42,9 +41,9 @@ struct Osmosis {
  * Definizione delle funzioni
  */
 
-int displayMenu();
-int printRules();
-int startGame();
+void displayMenu();
+void printRules();
+void startGame();
 void shuffle(struct Card *array, int n);
 void printBoard(
 	struct Card *firstStack,
@@ -60,6 +59,7 @@ void printBoard(
 	);
 	
 char* transformvaluecard(int value);
+void printBoardRow(struct Card *stack, struct Card *flippedStack, bool isDeck);
 
 /*
 char[] transformSuiteCard(int suite);
@@ -70,7 +70,7 @@ struct Card * createInitialCardStack();
 */
 
 
-int displayMenu() {
+void displayMenu() {
 	int choice = 0;
 	printf("Ciao, benvenuto in Osmosi Solitaire\n");
 	do {
@@ -93,7 +93,7 @@ int displayMenu() {
 	}
 	while(choice != 3);
 }
-int printRules(){
+void printRules(){
 	printf("SCOPO DEL GIOCO");
 	printf("\n");
 	printf("Spostare tutte le carte nelle pile di base.\n");
@@ -103,7 +103,7 @@ int printRules(){
 	printf("-Nella pila di base superiore � possibile mettere qualsiasi carta dello stesso seme della prima carta distribuita dal mazzo.\n");
 	
 }
-int startGame() {
+void startGame() {
 	int i, j, k;
 	printf("Buona fortuna");
 	printf("\n");
@@ -318,6 +318,7 @@ struct Card * createInitialCardStack() {
 
 int main() {
 	displayMenu();
+    return 0;
 }
 
 void printBoard(
