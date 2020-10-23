@@ -1,0 +1,1 @@
+/usr/bin/cc -g   CMakeFiles/solitair.dir/osmosis.c.o  -o solitair 

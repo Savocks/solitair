@@ -1,0 +1,42 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/mnt/c/Users/giuli/CLionProjects/solitair/cardutils.h
+stdlib.h
+-
+stdio.h
+-
+stdbool.h
+-
+memory.h
+-
+printutils.h
+/mnt/c/Users/giuli/CLionProjects/solitair/printutils.h
+
+/mnt/c/Users/giuli/CLionProjects/solitair/models.h
+stdlib.h
+-
+stdio.h
+-
+stdbool.h
+-
+
+/mnt/c/Users/giuli/CLionProjects/solitair/osmosis.c
+cardutils.h
+/mnt/c/Users/giuli/CLionProjects/solitair/cardutils.h
+
+/mnt/c/Users/giuli/CLionProjects/solitair/printutils.h
+stdio.h
+-
+stdlib.h
+-
+stdbool.h
+-
+models.h
+/mnt/c/Users/giuli/CLionProjects/solitair/models.h
+

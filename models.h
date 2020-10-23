@@ -1,57 +1,36 @@
-#include <stdio.h>
 #include <stdlib.h>
+#include <stdio.h>
 #include <stdbool.h>
 
 /*
  * Definizione delle strutture che servono al gioco.
  */
-typedef struct Card{
-	int value;
-	int suit;
-	int color;
-}Card;
+typedef struct Card {
+    int value;
+    int suit;
+    int color;
+} s_card;
 
-typedef struct CardStack{
-	struct Card* cards;
-	struct Card firstCard;
-	int maxCards;
-	int currentElement;
-}CardStack;
+typedef struct CardStack {
+    s_card *cards;
+    s_card firstCard;
+    int maxCards;
+    int currentElement;
+} s_stack;
 
 typedef struct Osmosis {
-	bool isStarded;
-	bool isFinished;
-	struct CardStack firstStack;
-	struct CardStack secondStack;
-	struct CardStack thirdStack;
-	struct CardStack forthStack;
-	struct CardStack firstOpenStack;
-	struct CardStack secondOpenStack;
-	struct CardStack thirdOpenStack;
-	struct CardStack forthOpenStack;
-	struct CardStack deck;
-	struct CardStack openDeck;
-}Osmosis;
-
-
-/*
- * Definizione delle funzioni
- */
-
-int displayMenu();
-int printRules();
-int startGame();
-void shuffle(int [], int n);
-/*
-char[] transformSuiteCard(int suite);
-char transformvaluecard(int value);
-void removecard(stack *s, card *c);
-void addCards(stack *A, card *B);
-void givesCards (stack *s, stack *c, int maxcards);
-struct Card * createInitialCardStack();
-*/
-
-
-
+    bool isStarded;
+    bool isFinished;
+    s_stack* fStack;
+    s_stack* sStack;
+    s_stack* tStack;
+    s_stack* fourthStack;
+    s_stack* fFlippedStack;
+    s_stack* sFlippedStack;
+    s_stack* tFlippedStack;
+    s_stack* fourthFlippedStack;
+    s_stack* deck;
+    s_stack* fDeck;
+} s_osmosis;
 
 
