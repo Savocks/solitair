@@ -56,6 +56,7 @@ s_stack* initializeStack(int maxCards, bool isFlipped) {
         perror("Stack first Card Calloc failed");
         exit(1);
     }
+    stack->maxCards = maxCards;
     if (isFlipped) {
         stack->currentElement = 0;
     } else {
@@ -111,6 +112,7 @@ void distributeCards(s_stack* deck, s_osmosis* game) {
 }
 
 void giveCards(s_stack** deck, s_stack** stack, int cardToGive) {
+
     int j = (*deck)->maxCards - 1;
     for (int i = cardToGive - 1; i >= 0; i--) {
         (*stack)->cards[i] = (*deck)->cards[j];

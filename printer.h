@@ -34,7 +34,7 @@ void printGameCommands() {
 }
 
 void printBoard(s_osmosis* game) {
-    system("clear");
+    system("cls");
     printf("\n***************************************************\n");
     printf("***************************************************\n");
     printBoardRow(game->fStack->cards, game->fStack->currentElement, game->fFlippedStack->cards, false);
