@@ -82,7 +82,10 @@
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/mnt/c/Users/giuli/CLionProjects/solitair/cardutils.h">
+		<Unit filename="/mnt/c/Users/giuli/CLionProjects/solitair/cards.h">
+			<Option target="solitair"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/giuli/CLionProjects/solitair/mapperutils.h">
 			<Option target="solitair"/>
 		</Unit>
 		<Unit filename="/mnt/c/Users/giuli/CLionProjects/solitair/models.h">
@@ -91,7 +94,10 @@
 		<Unit filename="/mnt/c/Users/giuli/CLionProjects/solitair/osmosis.c">
 			<Option target="solitair"/>
 		</Unit>
-		<Unit filename="/mnt/c/Users/giuli/CLionProjects/solitair/printutils.h">
+		<Unit filename="/mnt/c/Users/giuli/CLionProjects/solitair/printer.h">
+			<Option target="solitair"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/giuli/CLionProjects/solitair/utils.h">
 			<Option target="solitair"/>
 		</Unit>
 		<Unit filename="/mnt/c/Users/giuli/CLionProjects/solitair/CMakeLists.txt">

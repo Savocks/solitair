@@ -1,23 +1,21 @@
-#include <stdio.h>
+//
+// Created by giuli on 23/10/2020.
+//
+
+#ifndef SOLITAIR_PRINTER_H
+#define SOLITAIR_PRINTER_H
+
+#endif //SOLITAIR_PRINTER_H
+
 #include <stdlib.h>
-#include <stdbool.h>
-
+#include <stdio.h>
 #include "models.h"
-
-#define SPADE "♠"
-#define CLUB "♣"
-#define HEART "♥"
-#define DIAMOND "♦"
+#include "mapperutils.h"
 
 void printRules() ;
 void printGameCommands();
 void printBoard(s_osmosis*);
-void printBoardRow(s_card* , s_card* , bool isDeck);
-char* concat(char*, char*);
-char* transformValueCard(int value);
-char* transformSuitCard(int suit);
-char* getCardValueAndSuit(int value, int suit);
-
+void printBoardRow(s_card* , int, s_card* , bool isDeck);
 
 
 void printRules() {
@@ -39,20 +37,20 @@ void printBoard(s_osmosis* game) {
     system("clear");
     printf("\n***************************************************\n");
     printf("***************************************************\n");
-    printBoardRow(game->fStack->cards, game->fFlippedStack->cards, false);
-    printBoardRow(game->sStack->cards, game->sFlippedStack->cards, false);
-    printBoardRow(game->tStack->cards, game->tFlippedStack->cards, false);
-    printBoardRow(game->fourthStack->cards, game->fourthFlippedStack->cards, false);
-    printBoardRow(game->fDeck->cards, game->deck->cards, true);
+    printBoardRow(game->fStack->cards, game->fStack->currentElement, game->fFlippedStack->cards, false);
+    printBoardRow(game->sStack->cards, game->sStack->currentElement, game->sFlippedStack->cards, false);
+    printBoardRow(game->tStack->cards, game->tStack->currentElement, game->tFlippedStack->cards, false);
+    printBoardRow(game->fourthStack->cards, game->fourthStack->currentElement, game->fourthFlippedStack->cards, false);
+    printBoardRow(game->deck->cards, game->deck->currentElement, game->deck->cards, true);
     printf("***************************************************\n");
 
 
 }
 
-void printBoardRow(s_card *stack, s_card *flippedStack, bool isDeck) {
+void printBoardRow(s_card *stack, int currentElement, s_card *flippedStack, bool isDeck) {
     if (!isDeck) {
         printf("**\t%s\t\t%s %s %s %s %s %s %s %s %s %s %s %s %s**\n",
-               getCardValueAndSuit(stack[0].value, stack[0].suit),
+               getCardValueAndSuit(stack[currentElement].value, stack[currentElement].suit),
                getCardValueAndSuit(flippedStack[0].value, flippedStack[0].suit),
                getCardValueAndSuit(flippedStack[1].value, flippedStack[1].suit),
                getCardValueAndSuit(flippedStack[2].value, flippedStack[2].suit),
@@ -70,65 +68,7 @@ void printBoardRow(s_card *stack, s_card *flippedStack, bool isDeck) {
         printf("\n");
     } else {
         printf("**\t\t\t\t\t      %s %s**\n", getCardValueAndSuit(flippedStack[0].value, flippedStack[0].suit),
-               getCardValueAndSuit(stack[0].value, stack[0].suit));
+               getCardValueAndSuit(stack[currentElement].value, stack[currentElement].suit));
         printf("\n");
     }
 }
-
-char * transformValueCard(int value) {
-
-    switch (value) {
-        case 0:
-            return "X";
-        case 1:
-            return "A";
-        case 2:
-            return "2";
-        case 3:
-            return "3";
-        case 4:
-            return "4";
-        case 5:
-            return "5";
-        case 6:
-            return "6";
-        case 7:
-            return "7";
-        case 8:
-            return "8";
-        case 9:
-            return "9";
-        case 10:
-            return "10";
-        case 11:
-            return "J";
-        case 12:
-            return "Q";
-        case 13:
-            return "K";
-    }
-}
-
-char* transformSuitCard(int suit) {
-    switch(suit){
-        case 1:return SPADE;
-        case 2:return CLUB;
-        case 3:return HEART;
-        case 4:return DIAMOND;
-        default:return "?";
-    }
-}
-
-char* concat(char *s1, char *s2)
-{
-    char *result = malloc(strlen(s1) + strlen(s2) + 1); // +1 for the null-terminator
-    // in real code you would check for errors in malloc here
-    strcpy(result, s1);
-    strcat(result, s2);
-    return result;
-}
-
-char* getCardValueAndSuit(int value, int suit) {
-    return concat(transformValueCard(value), transformSuitCard(suit));
-}
-
