@@ -35,8 +35,9 @@ void displayMenu() {
 void startGame() {
     printf("Buona fortuna");
     printf("\n");
-    s_osmosis* game = createOsmosisGame(game);
+    s_osmosis* game = createOsmosisGame();
     s_stack* deck = initializeDeckOfCards();
+    printf("%d", game->fStack->cards[0].value);
     distributeCards(deck, game);
     int choice;
     do {

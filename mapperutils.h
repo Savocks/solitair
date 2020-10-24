@@ -62,7 +62,8 @@ char* transformSuitCard(int suit) {
 
 char* concat(char *s1, char *s2)
 {
-    char *result = malloc(strlen(s1) + strlen(s2) + 1);
+    char *result = 
+	result = (char*)calloc(1, strlen(s1) + strlen(s2) + 1);
     strcpy(result, s1);
     strcat(result, s2);
     return result;

@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/mnt/c/Users/giuli/CLionProjects/solitair/cards.h
+C:/Users/gsavoca/CLionProjects/solitair/cards.h
 stdlib.h
 -
 stdio.h
@@ -16,17 +16,17 @@ stdbool.h
 memory.h
 -
 printer.h
-/mnt/c/Users/giuli/CLionProjects/solitair/printer.h
+C:/Users/gsavoca/CLionProjects/solitair/printer.h
 utils.h
-/mnt/c/Users/giuli/CLionProjects/solitair/utils.h
+C:/Users/gsavoca/CLionProjects/solitair/utils.h
 
-/mnt/c/Users/giuli/CLionProjects/solitair/mapperutils.h
+C:/Users/gsavoca/CLionProjects/solitair/mapperutils.h
 stdlib.h
 -
 string.h
-/mnt/c/Users/giuli/CLionProjects/solitair/string.h
+C:/Users/gsavoca/CLionProjects/solitair/string.h
 
-/mnt/c/Users/giuli/CLionProjects/solitair/models.h
+C:/Users/gsavoca/CLionProjects/solitair/models.h
 stdlib.h
 -
 stdio.h
@@ -34,21 +34,21 @@ stdio.h
 stdbool.h
 -
 
-/mnt/c/Users/giuli/CLionProjects/solitair/osmosis.c
+C:/Users/gsavoca/CLionProjects/solitair/osmosis.c
 time.h
 -
 cards.h
-/mnt/c/Users/giuli/CLionProjects/solitair/cards.h
+C:/Users/gsavoca/CLionProjects/solitair/cards.h
 
-/mnt/c/Users/giuli/CLionProjects/solitair/printer.h
+C:/Users/gsavoca/CLionProjects/solitair/printer.h
 stdlib.h
 -
 stdio.h
 -
 models.h
-/mnt/c/Users/giuli/CLionProjects/solitair/models.h
+C:/Users/gsavoca/CLionProjects/solitair/models.h
 mapperutils.h
-/mnt/c/Users/giuli/CLionProjects/solitair/mapperutils.h
+C:/Users/gsavoca/CLionProjects/solitair/mapperutils.h
 
-/mnt/c/Users/giuli/CLionProjects/solitair/utils.h
+C:/Users/gsavoca/CLionProjects/solitair/utils.h
 

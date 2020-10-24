@@ -1,6 +1,8 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/solitair.dir/osmosis.c.o"
-  "solitair"
+  "CMakeFiles/solitair.dir/osmosis.c.obj"
+  "libsolitair.dll.a"
+  "solitair.exe"
+  "solitair.exe.manifest"
   "solitair.pdb"
 )
 
