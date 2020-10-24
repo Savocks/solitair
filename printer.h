@@ -34,14 +34,14 @@ void printGameCommands() {
 }
 
 void printBoard(s_osmosis* game) {
-    system("cls");
+    system("clear");
     printf("\n***************************************************\n");
     printf("***************************************************\n");
     printBoardRow(game->fStack->cards, game->fStack->currentElement, game->fFlippedStack->cards, false);
     printBoardRow(game->sStack->cards, game->sStack->currentElement, game->sFlippedStack->cards, false);
     printBoardRow(game->tStack->cards, game->tStack->currentElement, game->tFlippedStack->cards, false);
     printBoardRow(game->fourthStack->cards, game->fourthStack->currentElement, game->fourthFlippedStack->cards, false);
-    printBoardRow(game->deck->cards, game->deck->currentElement, game->deck->cards, true);
+    printBoardRow(game->deck->cards, game->fDeck->currentElement, game->fDeck->cards, true);
     printf("***************************************************\n");
 
 
@@ -67,8 +67,7 @@ void printBoardRow(s_card *stack, int currentElement, s_card *flippedStack, bool
         );
         printf("\n");
     } else {
-        printf("**\t\t\t\t\t      %s %s**\n", getCardValueAndSuit(flippedStack[0].value, flippedStack[0].suit),
-               getCardValueAndSuit(stack[currentElement].value, stack[currentElement].suit));
+        printf("**\t\t\t\t\t      %s X**\n", getCardValueAndSuit(flippedStack[currentElement].value, flippedStack[currentElement].suit));
         printf("\n");
     }
 }

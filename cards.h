@@ -27,11 +27,14 @@ void initializeCard(s_card* card, int value, int color, int suit);
 void fillDeck(s_stack* deck);
 void giveCards(s_stack** deck, s_stack** stack, int cardToGive);
 void distributeCards(s_stack*, s_osmosis*);
+void moveCard(s_stack**, s_osmosis**, bool);
 bool canMoveCard(s_card*, s_stack*);
+bool valueIsPresentInPreviousStack(s_card*, s_stack*);
+void flipDeckCard(s_stack**, s_osmosis**);
 
 s_osmosis* createOsmosisGame() {
     s_osmosis* game = initializeOsmosisGame();
-    game->fDeck = initializeStack(35, false);
+    game->fDeck = initializeStack(35, true);
     game->deck = initializeStack(35, false);
     game->fStack = initializeStack(4, false);
     game->sStack = initializeStack(4, false);
@@ -108,7 +111,11 @@ void distributeCards(s_stack* deck, s_osmosis* game) {
     giveCards(&deck, &game->tStack, 4);
     giveCards(&deck, &game->fourthStack, 4);
     giveCards(&deck, &game->fFlippedStack, 1);
-    giveCards(&deck, &game->deck, 35);
+    giveCards(&deck, &game->fDeck, 1);
+    giveCards(&deck, &game->deck, 34);
+
+  
+
 }
 
 void giveCards(s_stack** deck, s_stack** stack, int cardToGive) {
@@ -122,21 +129,24 @@ void giveCards(s_stack** deck, s_stack** stack, int cardToGive) {
 }
 
 bool canMoveCard(s_card* card, s_stack* stack) {
-    printf("\n Valore %d\n", card->value);
-    if (!stack->cards[0].value) {
-        return false;
-    }
-    if (!stack->cards[0].suit) {
-        return false;
-    }
     if (card->suit == stack->cards[0].suit) {
         return true;
     }
     return false;
 }
 
-void moveCard(s_stack** stackFrom, s_osmosis** game) {
+bool isEmptyStack(s_stack* stack) {
+    if (!stack->cards[0].value) {
+        return true;
+    }
+    if (!stack->cards[0].suit) {
+        return true;
+    }
+}
+
+void moveCard(s_stack** stackFrom, s_osmosis** game, bool isDeck) {
     s_card cardToMove = (*stackFrom)->cards[(*stackFrom)->currentElement];
+    printf("Card Value %d, Card Suit %d\n", cardToMove.value, cardToMove.suit);
     if(canMoveCard(&cardToMove, (*game)->fFlippedStack)) {
         (*game)->fFlippedStack->cards[(*game)->fFlippedStack->currentElement+1].suit = cardToMove.suit;
         (*game)->fFlippedStack->cards[(*game)->fFlippedStack->currentElement+1].color = cardToMove.color;
@@ -145,7 +155,14 @@ void moveCard(s_stack** stackFrom, s_osmosis** game) {
         (*game)->fFlippedStack->currentElement++;
         return;
     }
-    if(canMoveCard(&cardToMove, (*game)->sFlippedStack)) {
+    if (isEmptyStack((*game)->sFlippedStack) && valueIsPresentInPreviousStack(&cardToMove, (*game)->fFlippedStack)) {
+        (*game)->sFlippedStack->cards[(*game)->sFlippedStack->currentElement].suit = cardToMove.suit;
+        (*game)->sFlippedStack->cards[(*game)->sFlippedStack->currentElement].color = cardToMove.color;
+        (*game)->sFlippedStack->cards[(*game)->sFlippedStack->currentElement].value = cardToMove.value;
+        (*stackFrom)->currentElement--;
+        (*game)->sFlippedStack->currentElement++;
+        return;
+    } else if(canMoveCard(&cardToMove, (*game)->sFlippedStack)) {
         (*game)->sFlippedStack->cards[(*game)->sFlippedStack->currentElement+1].suit = cardToMove.suit;
         (*game)->sFlippedStack->cards[(*game)->sFlippedStack->currentElement+1].color = cardToMove.color;
         (*game)->sFlippedStack->cards[(*game)->sFlippedStack->currentElement+1].value = cardToMove.value;
@@ -153,7 +170,14 @@ void moveCard(s_stack** stackFrom, s_osmosis** game) {
         (*game)->sFlippedStack->currentElement++;
         return;
     }
-    if(canMoveCard(&cardToMove, (*game)->tFlippedStack)) {
+    if (isEmptyStack((*game)->tFlippedStack) && valueIsPresentInPreviousStack(&cardToMove, (*game)->sFlippedStack)) {
+        (*game)->tFlippedStack->cards[(*game)->tFlippedStack->currentElement].suit = cardToMove.suit;
+        (*game)->tFlippedStack->cards[(*game)->tFlippedStack->currentElement].color = cardToMove.color;
+        (*game)->tFlippedStack->cards[(*game)->tFlippedStack->currentElement].value = cardToMove.value;
+        (*stackFrom)->currentElement--;
+        (*game)->tFlippedStack->currentElement++;
+        return;
+    } else if(canMoveCard(&cardToMove, (*game)->tFlippedStack)) {
         (*game)->tFlippedStack->cards[(*game)->tFlippedStack->currentElement+1].suit = cardToMove.suit;
         (*game)->tFlippedStack->cards[(*game)->tFlippedStack->currentElement+1].color = cardToMove.color;
         (*game)->tFlippedStack->cards[(*game)->tFlippedStack->currentElement+1].value = cardToMove.value;
@@ -161,7 +185,15 @@ void moveCard(s_stack** stackFrom, s_osmosis** game) {
         (*game)->tFlippedStack->currentElement++;
         return;
     }
-    if(canMoveCard(&cardToMove, (*game)->fourthFlippedStack)) {
+
+    if (isEmptyStack((*game)->fourthFlippedStack) && valueIsPresentInPreviousStack(&cardToMove, (*game)->tFlippedStack)) {
+        (*game)->fourthFlippedStack->cards[(*game)->fourthFlippedStack->currentElement].suit = cardToMove.suit;
+        (*game)->fourthFlippedStack->cards[(*game)->fourthFlippedStack->currentElement].color = cardToMove.color;
+        (*game)->fourthFlippedStack->cards[(*game)->fourthFlippedStack->currentElement].value = cardToMove.value;
+        (*stackFrom)->currentElement--;
+        (*game)->fourthFlippedStack->currentElement++;
+        return;
+    } else if(canMoveCard(&cardToMove, (*game)->fourthFlippedStack)) {
         (*game)->fourthFlippedStack->cards[(*game)->fourthFlippedStack->currentElement+1].suit = cardToMove.suit;
         (*game)->fourthFlippedStack->cards[(*game)->fourthFlippedStack->currentElement+1].color = cardToMove.color;
         (*game)->fourthFlippedStack->cards[(*game)->fourthFlippedStack->currentElement+1].value = cardToMove.value;
@@ -169,6 +201,27 @@ void moveCard(s_stack** stackFrom, s_osmosis** game) {
         (*game)->fourthFlippedStack->currentElement++;
         return;
     }
+        
     bool moved = false;
 }
 
+
+void flipDeckCard(s_stack** deck, s_osmosis** game) {
+    s_card cardToMove = (*deck)->cards[(*deck)->currentElement];
+    printf("%d fDeck currentElement", (*game)->fDeck->currentElement);
+    (*game)->fDeck->cards[(*game)->fDeck->currentElement+1].suit = cardToMove.suit;
+    (*game)->fDeck->cards[(*game)->fDeck->currentElement+1].color = cardToMove.color;
+    (*game)->fDeck->cards[(*game)->fDeck->currentElement+1].value = cardToMove.value;
+    (*deck)->currentElement--;
+    (*game)->fDeck->currentElement++;
+}
+
+bool valueIsPresentInPreviousStack(s_card* cardToMove, s_stack* previousStack) {
+    int valueToCheck = cardToMove->value;
+    for (int i = 0; i < previousStack->currentElement; i++) {
+        if (previousStack->cards[i].value == valueToCheck) {
+            return true;
+        }
+    } 
+    return false;
+}

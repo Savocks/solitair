@@ -37,8 +37,8 @@ void startGame() {
     printf("\n");
     s_osmosis* game = createOsmosisGame();
     s_stack* deck = initializeDeckOfCards();
-    printf("%d", game->fStack->cards[0].value);
     distributeCards(deck, game);
+
     int choice;
     do {
         printBoard(game);
@@ -46,20 +46,25 @@ void startGame() {
         scanf("%d", &choice);
         switch (choice) {
             case 1:
-                moveCard(&game->fStack, &game);
+                moveCard(&game->fStack, &game, false);
                 break;
             case 2:
-                moveCard(&game->sStack, &game);
+                moveCard(&game->sStack, &game, false);
                 break;
             case 3:
-                moveCard(&game->tStack, &game);
+                moveCard(&game->tStack, &game, false);
                 break;
             case 4:
-                moveCard(&game->fourthStack, &game);
+                moveCard(&game->fourthStack, &game, false);
                 break;
             case 5:
+                flipDeckCard(&game->deck, &game);
                 break;
             case 6:
+                moveCard(&game->fDeck, &game, true);
+                break;
+            case 0:
+                exit(0);
                 break;
         }
     } while (!game->isFinished);
