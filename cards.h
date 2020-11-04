@@ -27,10 +27,13 @@ void initializeCard(s_card* card, int value, int color, int suit);
 void fillDeck(s_stack* deck);
 void giveCards(s_stack** deck, s_stack** stack, int cardToGive);
 void distributeCards(s_stack*, s_osmosis*);
-void moveCard(s_stack**, s_osmosis**, bool);
-bool canMoveCard(s_card*, s_stack*);
-bool valueIsPresentInPreviousStack(s_card*, s_stack*);
-void flipDeckCard(s_stack**, s_osmosis**);
+void flipDeckCard(s_osmosis*);
+bool isEmptyStack(s_stack*);
+bool isSuitPresentInStack(int, s_stack*);
+bool isValuePresentInStack(int, s_stack*);
+bool canAddCardToStack(s_card , s_stack*, s_stack*);
+bool addCard(s_stack*, s_stack*, s_stack*);
+bool moveCard(s_stack*, s_osmosis*);
 
 s_osmosis* createOsmosisGame() {
     s_osmosis* game = initializeOsmosisGame();
@@ -113,13 +116,9 @@ void distributeCards(s_stack* deck, s_osmosis* game) {
     giveCards(&deck, &game->fFlippedStack, 1);
     giveCards(&deck, &game->fDeck, 1);
     giveCards(&deck, &game->deck, 34);
-
-  
-
 }
 
 void giveCards(s_stack** deck, s_stack** stack, int cardToGive) {
-
     int j = (*deck)->maxCards - 1;
     for (int i = cardToGive - 1; i >= 0; i--) {
         (*stack)->cards[i] = (*deck)->cards[j];
@@ -128,100 +127,93 @@ void giveCards(s_stack** deck, s_stack** stack, int cardToGive) {
     (*deck)->maxCards -= cardToGive;
 }
 
-bool canMoveCard(s_card* card, s_stack* stack) {
-    if (card->suit == stack->cards[0].suit) {
+void flipDeckCard(s_osmosis* game) {
+    if (game->deck->currentElement == 0 && game->fDeck->currentElement == 34) {
+        game->deck->currentElement = game->deck->maxCards;
+        game->fDeck->currentElement = 0;
+        return;
+    } else {
+        game->fDeck->currentElement++;
+        game->deck->currentElement--;
+        int currentDeckElement = game->deck->currentElement;
+        int currentFlippedDeckElement = game->fDeck->currentElement;
+        game->fDeck->cards[currentFlippedDeckElement] = game->deck->cards[currentDeckElement];
+    }
+}
+
+bool moveCard(s_stack* stack, s_osmosis* game) {
+    bool cardAdded = false;
+    if (stack->currentElement < 0) {
+        return cardAdded;
+    } else {
+        cardAdded = addCard(stack, game->fFlippedStack, NULL);
+        if (!cardAdded) {
+            cardAdded = addCard(stack, game->sFlippedStack, game->fFlippedStack);
+            if (!cardAdded) {
+                cardAdded = addCard(stack, game->tFlippedStack, game->sFlippedStack);
+            }
+            if (!cardAdded) {
+                cardAdded = addCard(stack, game->fourthFlippedStack, game->tFlippedStack);
+            }
+            if (!cardAdded) {
+                return false;
+            } else {
+                return true;
+            }
+        }
+    }
+    return cardAdded;
+}
+
+bool isEmptyStack(s_stack* stack) {
+    if (stack->currentElement == 0) {
         return true;
     }
     return false;
 }
 
-bool isEmptyStack(s_stack* stack) {
-    if (!stack->cards[0].value) {
+bool isSuitPresentInStack(int suit, s_stack* stack) {
+    if (stack->cards[0].suit == suit) {
         return true;
     }
-    if (!stack->cards[0].suit) {
-        return true;
-    }
+    return false;
 }
 
-void moveCard(s_stack** stackFrom, s_osmosis** game, bool isDeck) {
-    s_card cardToMove = (*stackFrom)->cards[(*stackFrom)->currentElement];
-    printf("Card Value %d, Card Suit %d\n", cardToMove.value, cardToMove.suit);
-    if(canMoveCard(&cardToMove, (*game)->fFlippedStack)) {
-        (*game)->fFlippedStack->cards[(*game)->fFlippedStack->currentElement+1].suit = cardToMove.suit;
-        (*game)->fFlippedStack->cards[(*game)->fFlippedStack->currentElement+1].color = cardToMove.color;
-        (*game)->fFlippedStack->cards[(*game)->fFlippedStack->currentElement+1].value = cardToMove.value;
-        (*stackFrom)->currentElement--;
-        (*game)->fFlippedStack->currentElement++;
-        return;
-    }
-    if (isEmptyStack((*game)->sFlippedStack) && valueIsPresentInPreviousStack(&cardToMove, (*game)->fFlippedStack)) {
-        (*game)->sFlippedStack->cards[(*game)->sFlippedStack->currentElement].suit = cardToMove.suit;
-        (*game)->sFlippedStack->cards[(*game)->sFlippedStack->currentElement].color = cardToMove.color;
-        (*game)->sFlippedStack->cards[(*game)->sFlippedStack->currentElement].value = cardToMove.value;
-        (*stackFrom)->currentElement--;
-        (*game)->sFlippedStack->currentElement++;
-        return;
-    } else if(canMoveCard(&cardToMove, (*game)->sFlippedStack)) {
-        (*game)->sFlippedStack->cards[(*game)->sFlippedStack->currentElement+1].suit = cardToMove.suit;
-        (*game)->sFlippedStack->cards[(*game)->sFlippedStack->currentElement+1].color = cardToMove.color;
-        (*game)->sFlippedStack->cards[(*game)->sFlippedStack->currentElement+1].value = cardToMove.value;
-        (*stackFrom)->currentElement--;
-        (*game)->sFlippedStack->currentElement++;
-        return;
-    }
-    if (isEmptyStack((*game)->tFlippedStack) && valueIsPresentInPreviousStack(&cardToMove, (*game)->sFlippedStack)) {
-        (*game)->tFlippedStack->cards[(*game)->tFlippedStack->currentElement].suit = cardToMove.suit;
-        (*game)->tFlippedStack->cards[(*game)->tFlippedStack->currentElement].color = cardToMove.color;
-        (*game)->tFlippedStack->cards[(*game)->tFlippedStack->currentElement].value = cardToMove.value;
-        (*stackFrom)->currentElement--;
-        (*game)->tFlippedStack->currentElement++;
-        return;
-    } else if(canMoveCard(&cardToMove, (*game)->tFlippedStack)) {
-        (*game)->tFlippedStack->cards[(*game)->tFlippedStack->currentElement+1].suit = cardToMove.suit;
-        (*game)->tFlippedStack->cards[(*game)->tFlippedStack->currentElement+1].color = cardToMove.color;
-        (*game)->tFlippedStack->cards[(*game)->tFlippedStack->currentElement+1].value = cardToMove.value;
-        (*stackFrom)->currentElement--;
-        (*game)->tFlippedStack->currentElement++;
-        return;
-    }
-
-    if (isEmptyStack((*game)->fourthFlippedStack) && valueIsPresentInPreviousStack(&cardToMove, (*game)->tFlippedStack)) {
-        (*game)->fourthFlippedStack->cards[(*game)->fourthFlippedStack->currentElement].suit = cardToMove.suit;
-        (*game)->fourthFlippedStack->cards[(*game)->fourthFlippedStack->currentElement].color = cardToMove.color;
-        (*game)->fourthFlippedStack->cards[(*game)->fourthFlippedStack->currentElement].value = cardToMove.value;
-        (*stackFrom)->currentElement--;
-        (*game)->fourthFlippedStack->currentElement++;
-        return;
-    } else if(canMoveCard(&cardToMove, (*game)->fourthFlippedStack)) {
-        (*game)->fourthFlippedStack->cards[(*game)->fourthFlippedStack->currentElement+1].suit = cardToMove.suit;
-        (*game)->fourthFlippedStack->cards[(*game)->fourthFlippedStack->currentElement+1].color = cardToMove.color;
-        (*game)->fourthFlippedStack->cards[(*game)->fourthFlippedStack->currentElement+1].value = cardToMove.value;
-        (*stackFrom)->currentElement--;
-        (*game)->fourthFlippedStack->currentElement++;
-        return;
-    }
-        
-    bool moved = false;
-}
-
-
-void flipDeckCard(s_stack** deck, s_osmosis** game) {
-    s_card cardToMove = (*deck)->cards[(*deck)->currentElement];
-    printf("%d fDeck currentElement", (*game)->fDeck->currentElement);
-    (*game)->fDeck->cards[(*game)->fDeck->currentElement+1].suit = cardToMove.suit;
-    (*game)->fDeck->cards[(*game)->fDeck->currentElement+1].color = cardToMove.color;
-    (*game)->fDeck->cards[(*game)->fDeck->currentElement+1].value = cardToMove.value;
-    (*deck)->currentElement--;
-    (*game)->fDeck->currentElement++;
-}
-
-bool valueIsPresentInPreviousStack(s_card* cardToMove, s_stack* previousStack) {
-    int valueToCheck = cardToMove->value;
-    for (int i = 0; i < previousStack->currentElement; i++) {
-        if (previousStack->cards[i].value == valueToCheck) {
+bool isValuePresentInStack(int cardValue, s_stack* stack) {
+    for (int i = 0; i < stack->currentElement; ++i) {
+        if (stack->cards[i].value == cardValue) {
             return true;
         }
-    } 
+    }
+    return false;
+}
+
+bool canAddCardToStack(s_card cardToAdd, s_stack* stack, s_stack* stackToCheck) {
+    int suit = cardToAdd.suit;
+    int value = cardToAdd.value;
+    if (stackToCheck == NULL) {
+        if (isSuitPresentInStack(suit, stack)) return true;
+    }
+    else if (isEmptyStack(stack) && isValuePresentInStack(value, stackToCheck)) return true;
+    else if (isSuitPresentInStack(suit, stack) && isValuePresentInStack(value, stackToCheck)) return true;
+    return false;
+}
+
+bool addCard(s_stack* stackFrom, s_stack* stackTo, s_stack* stackToCheck) {
+    s_card cardToAdd = stackFrom->cards[stackFrom->currentElement];
+    if (canAddCardToStack(cardToAdd, stackTo, stackToCheck) && !stackToCheck) {
+        stackTo->currentElement++;
+        stackTo->cards[stackTo->currentElement] = cardToAdd;
+        if (stackFrom->currentElement > 0) {
+            stackFrom->currentElement--;
+        }
+        return true;
+    } else if (canAddCardToStack(cardToAdd, stackTo, stackToCheck) && stackToCheck){
+        stackTo->cards[stackTo->currentElement] = cardToAdd;
+        stackTo->currentElement++;
+        if (stackFrom->currentElement > 0) {
+            stackFrom->currentElement--;
+        }
+    }
     return false;
 }

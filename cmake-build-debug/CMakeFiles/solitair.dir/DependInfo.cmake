@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
-  "C:/Users/gsavoca/CLionProjects/solitair/osmosis.c" "C:/Users/gsavoca/CLionProjects/solitair/cmake-build-debug/CMakeFiles/solitair.dir/osmosis.c.obj"
+  "/mnt/c/Users/giuli/CLionProjects/solitair/osmosis.c" "/mnt/c/Users/giuli/CLionProjects/solitair/cmake-build-debug/CMakeFiles/solitair.dir/osmosis.c.o"
   )
 set(CMAKE_C_COMPILER_ID "GNU")
 

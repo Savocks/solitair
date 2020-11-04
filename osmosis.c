@@ -46,22 +46,22 @@ void startGame() {
         scanf("%d", &choice);
         switch (choice) {
             case 1:
-                moveCard(&game->fStack, &game, false);
+                moveCard(game->fStack, game);
                 break;
             case 2:
-                moveCard(&game->sStack, &game, false);
+                moveCard(game->sStack, game);
                 break;
             case 3:
-                moveCard(&game->tStack, &game, false);
+                moveCard(game->tStack, game);
                 break;
             case 4:
-                moveCard(&game->fourthStack, &game, false);
+                moveCard(game->fourthStack, game);
                 break;
             case 5:
-                flipDeckCard(&game->deck, &game);
+                flipDeckCard(game);
                 break;
             case 6:
-                moveCard(&game->fDeck, &game, true);
+                moveCard(game->fDeck, game);
                 break;
             case 0:
                 exit(0);
