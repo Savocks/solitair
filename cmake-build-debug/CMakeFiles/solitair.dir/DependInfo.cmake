@@ -8,6 +8,7 @@ set(CMAKE_DEPENDS_CHECK_C
   "/mnt/c/Users/giuli/CLionProjects/solitair/lib/deck/deck.c" "/mnt/c/Users/giuli/CLionProjects/solitair/cmake-build-debug/CMakeFiles/solitair.dir/lib/deck/deck.c.o"
   "/mnt/c/Users/giuli/CLionProjects/solitair/lib/discard_pile/discard_pile.c" "/mnt/c/Users/giuli/CLionProjects/solitair/cmake-build-debug/CMakeFiles/solitair.dir/lib/discard_pile/discard_pile.c.o"
   "/mnt/c/Users/giuli/CLionProjects/solitair/lib/foundation/foundation.c" "/mnt/c/Users/giuli/CLionProjects/solitair/cmake-build-debug/CMakeFiles/solitair.dir/lib/foundation/foundation.c.o"
+  "/mnt/c/Users/giuli/CLionProjects/solitair/lib/pile/pile.c" "/mnt/c/Users/giuli/CLionProjects/solitair/cmake-build-debug/CMakeFiles/solitair.dir/lib/pile/pile.c.o"
   "/mnt/c/Users/giuli/CLionProjects/solitair/lib/stock/stock.c" "/mnt/c/Users/giuli/CLionProjects/solitair/cmake-build-debug/CMakeFiles/solitair.dir/lib/stock/stock.c.o"
   "/mnt/c/Users/giuli/CLionProjects/solitair/main.c" "/mnt/c/Users/giuli/CLionProjects/solitair/cmake-build-debug/CMakeFiles/solitair.dir/main.c.o"
   )

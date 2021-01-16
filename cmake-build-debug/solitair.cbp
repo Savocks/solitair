@@ -106,6 +106,12 @@
 		<Unit filename="/mnt/c/Users/giuli/CLionProjects/solitair/lib/foundation/foundation.h">
 			<Option target="solitair"/>
 		</Unit>
+		<Unit filename="/mnt/c/Users/giuli/CLionProjects/solitair/lib/pile/pile.c">
+			<Option target="solitair"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/giuli/CLionProjects/solitair/lib/pile/pile.h">
+			<Option target="solitair"/>
+		</Unit>
 		<Unit filename="/mnt/c/Users/giuli/CLionProjects/solitair/lib/stock/stock.c">
 			<Option target="solitair"/>
 		</Unit>

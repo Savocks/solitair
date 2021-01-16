@@ -6,12 +6,21 @@
 #include <stdio.h>
 #include <ncurses.h>
 #include "lib/deck/deck.h"
+#include "lib/pile/pile.h"
 
 int main() {
     initscr(); /* Start curses mode */
-    printw("Hello World !!!"); /* Print Hello World */
-    refresh(); /* Print it on to the real screen */
-    getch(); /* Wait for user input */
-    endwin(); /* End curses */
+    int height, width, start_y, start_x;
+    height = 200;
+    width = 400;
+    start_x = 10;
+    start_y = 10;
+
+    WINDOW* win = newwin(height, width, start_y, start_x);
+
+    int c = getch();
+
+    endwin();
+
     return 0;
 }

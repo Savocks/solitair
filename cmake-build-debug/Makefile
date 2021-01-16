@@ -231,6 +231,33 @@ lib/foundation/foundation.c.s:
 	$(MAKE) -f CMakeFiles/solitair.dir/build.make CMakeFiles/solitair.dir/lib/foundation/foundation.c.s
 .PHONY : lib/foundation/foundation.c.s
 
+lib/pile/pile.o: lib/pile/pile.c.o
+
+.PHONY : lib/pile/pile.o
+
+# target to build an object file
+lib/pile/pile.c.o:
+	$(MAKE) -f CMakeFiles/solitair.dir/build.make CMakeFiles/solitair.dir/lib/pile/pile.c.o
+.PHONY : lib/pile/pile.c.o
+
+lib/pile/pile.i: lib/pile/pile.c.i
+
+.PHONY : lib/pile/pile.i
+
+# target to preprocess a source file
+lib/pile/pile.c.i:
+	$(MAKE) -f CMakeFiles/solitair.dir/build.make CMakeFiles/solitair.dir/lib/pile/pile.c.i
+.PHONY : lib/pile/pile.c.i
+
+lib/pile/pile.s: lib/pile/pile.c.s
+
+.PHONY : lib/pile/pile.s
+
+# target to generate assembly for a file
+lib/pile/pile.c.s:
+	$(MAKE) -f CMakeFiles/solitair.dir/build.make CMakeFiles/solitair.dir/lib/pile/pile.c.s
+.PHONY : lib/pile/pile.c.s
+
 lib/stock/stock.o: lib/stock/stock.c.o
 
 .PHONY : lib/stock/stock.o
@@ -306,6 +333,9 @@ help:
 	@echo "... lib/foundation/foundation.o"
 	@echo "... lib/foundation/foundation.i"
 	@echo "... lib/foundation/foundation.s"
+	@echo "... lib/pile/pile.o"
+	@echo "... lib/pile/pile.i"
+	@echo "... lib/pile/pile.s"
 	@echo "... lib/stock/stock.o"
 	@echo "... lib/stock/stock.i"
 	@echo "... lib/stock/stock.s"

@@ -1,6 +1,7 @@
 //
 // Created by giuli on 10/01/2021.
 //
+#pragma once
 
 #ifndef SOLITAIR_CARD_H
 #define SOLITAIR_CARD_H

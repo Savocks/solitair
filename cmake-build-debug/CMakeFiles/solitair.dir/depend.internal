@@ -14,10 +14,15 @@ CMakeFiles/solitair.dir/lib/discard_pile/discard_pile.c.o
 CMakeFiles/solitair.dir/lib/foundation/foundation.c.o
  /mnt/c/Users/giuli/CLionProjects/solitair/lib/foundation/foundation.c
  /mnt/c/Users/giuli/CLionProjects/solitair/lib/foundation/foundation.h
+CMakeFiles/solitair.dir/lib/pile/pile.c.o
+ /mnt/c/Users/giuli/CLionProjects/solitair/lib/card/card.h
+ /mnt/c/Users/giuli/CLionProjects/solitair/lib/pile/pile.c
+ /mnt/c/Users/giuli/CLionProjects/solitair/lib/pile/pile.h
 CMakeFiles/solitair.dir/lib/stock/stock.c.o
  /mnt/c/Users/giuli/CLionProjects/solitair/lib/stock/stock.c
  /mnt/c/Users/giuli/CLionProjects/solitair/lib/stock/stock.h
 CMakeFiles/solitair.dir/main.c.o
  /mnt/c/Users/giuli/CLionProjects/solitair/lib/card/card.h
  /mnt/c/Users/giuli/CLionProjects/solitair/lib/deck/deck.h
+ /mnt/c/Users/giuli/CLionProjects/solitair/lib/pile/pile.h
  /mnt/c/Users/giuli/CLionProjects/solitair/main.c

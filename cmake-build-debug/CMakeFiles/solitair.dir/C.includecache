@@ -11,6 +11,16 @@
 /mnt/c/Users/giuli/CLionProjects/solitair/lib/deck/deck.h
 time.h
 -
+stdbool.h
+-
+../card/card.h
+/mnt/c/Users/giuli/CLionProjects/solitair/lib/card/card.h
+
+/mnt/c/Users/giuli/CLionProjects/solitair/lib/pile/pile.h
+stdlib.h
+-
+stdbool.h
+-
 ../card/card.h
 /mnt/c/Users/giuli/CLionProjects/solitair/lib/card/card.h
 
@@ -23,4 +33,6 @@ ncurses.h
 -
 lib/deck/deck.h
 /mnt/c/Users/giuli/CLionProjects/solitair/lib/deck/deck.h
+lib/pile/pile.h
+/mnt/c/Users/giuli/CLionProjects/solitair/lib/pile/pile.h
 
