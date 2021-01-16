@@ -86,6 +86,7 @@ Card* deck_pop(Deck* deck) {
     if (!deck_is_empty(deck)) {
         return &deck->deck_cards[deck->top_card--];
     }
+    return NULL;
 }
 
 
@@ -94,6 +95,7 @@ Card* deck_peek(Deck* deck)
 {
     if (!deck_is_empty(deck))
         return &deck->deck_cards[deck->top_card];
+    return NULL;
 }
 
 Card* deck_get_deck_cards(Deck* this) {

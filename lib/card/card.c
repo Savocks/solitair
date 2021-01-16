@@ -24,6 +24,7 @@ Card* card_constructor(void) {
     card->value = 0;
     card->color = 0;
     card->seed = 0;
+    return card;
 }
 
 int card_get_color(Card* this) {
