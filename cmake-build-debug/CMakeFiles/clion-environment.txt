@@ -1,4 +1,4 @@
-ToolSet: 5.0 (local)@C:\MinGW
+ToolSet: Ubuntu 20.04.1 LTS (local)@C:\Users\giuli\AppData\Local\Microsoft\WindowsApps\ubuntu.exe
 Options: 
 
 Options:

@@ -1,3 +1,1 @@
-"C:\Program Files\JetBrains\CLion 2020.2.3\bin\cmake\win\bin\cmake.exe" -E rm -f CMakeFiles\solitair.dir/objects.a
-C:\MinGW\bin\ar.exe cr CMakeFiles\solitair.dir/objects.a @CMakeFiles\solitair.dir\objects1.rsp
-C:\MinGW\bin\gcc.exe -g   -Wl,--whole-archive CMakeFiles\solitair.dir/objects.a -Wl,--no-whole-archive  -o solitair.exe -Wl,--out-implib,libsolitair.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\solitair.dir\linklibs.rsp
+/usr/bin/cc -g   CMakeFiles/solitair.dir/main.c.o CMakeFiles/solitair.dir/lib/card/card.c.o CMakeFiles/solitair.dir/lib/foundation/foundation.c.o CMakeFiles/solitair.dir/lib/discard_pile/discard_pile.c.o CMakeFiles/solitair.dir/lib/stock/stock.c.o CMakeFiles/solitair.dir/lib/deck/deck.c.o  -o solitair  -lcurses /usr/lib/x86_64-linux-gnu/libform.so 

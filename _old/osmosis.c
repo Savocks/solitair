@@ -1,4 +1,5 @@
 #include <time.h>
+#include <langinfo.h>
 #include "cards.h"
 
 
@@ -7,7 +8,7 @@ void displayMenu();
 void startGame();
 
 void shuffle(s_card *array, int n);
-s_osmosis* createOsmosisGame();
+
 
 void displayMenu() {
     int choice = 0;
@@ -38,7 +39,6 @@ void startGame() {
     s_osmosis* game = createOsmosisGame();
     s_stack* deck = initializeDeckOfCards();
     distributeCards(deck, game);
-
     int choice;
     do {
         printBoard(game);
@@ -46,25 +46,11 @@ void startGame() {
         scanf("%d", &choice);
         switch (choice) {
             case 1:
-                moveCard(&game->fStack, &game, false);
-                break;
-            case 2:
-                moveCard(&game->sStack, &game, false);
-                break;
-            case 3:
-                moveCard(&game->tStack, &game, false);
-                break;
-            case 4:
-                moveCard(&game->fourthStack, &game, false);
-                break;
-            case 5:
-                flipDeckCard(&game->deck, &game);
-                break;
-            case 6:
-                moveCard(&game->fDeck, &game, true);
+
                 break;
             case 0:
                 exit(0);
+            default:
                 break;
         }
     } while (!game->isFinished);

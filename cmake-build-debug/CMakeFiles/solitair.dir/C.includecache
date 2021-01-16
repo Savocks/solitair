@@ -6,49 +6,21 @@
 
 #IncludeRegexTransform: 
 
-C:/Users/gsavoca/CLionProjects/solitair/cards.h
-stdlib.h
--
-stdio.h
--
-stdbool.h
--
-memory.h
--
-printer.h
-C:/Users/gsavoca/CLionProjects/solitair/printer.h
-utils.h
-C:/Users/gsavoca/CLionProjects/solitair/utils.h
+/mnt/c/Users/giuli/CLionProjects/solitair/lib/card/card.h
 
-C:/Users/gsavoca/CLionProjects/solitair/mapperutils.h
-stdlib.h
--
-string.h
-C:/Users/gsavoca/CLionProjects/solitair/string.h
-
-C:/Users/gsavoca/CLionProjects/solitair/models.h
-stdlib.h
--
-stdio.h
--
-stdbool.h
--
-
-C:/Users/gsavoca/CLionProjects/solitair/osmosis.c
+/mnt/c/Users/giuli/CLionProjects/solitair/lib/deck/deck.h
 time.h
 -
-cards.h
-C:/Users/gsavoca/CLionProjects/solitair/cards.h
+../card/card.h
+/mnt/c/Users/giuli/CLionProjects/solitair/lib/card/card.h
 
-C:/Users/gsavoca/CLionProjects/solitair/printer.h
+/mnt/c/Users/giuli/CLionProjects/solitair/main.c
 stdlib.h
 -
 stdio.h
 -
-models.h
-C:/Users/gsavoca/CLionProjects/solitair/models.h
-mapperutils.h
-C:/Users/gsavoca/CLionProjects/solitair/mapperutils.h
-
-C:/Users/gsavoca/CLionProjects/solitair/utils.h
+ncurses.h
+-
+lib/deck/deck.h
+/mnt/c/Users/giuli/CLionProjects/solitair/lib/deck/deck.h
 
