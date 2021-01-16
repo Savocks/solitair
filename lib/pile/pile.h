@@ -1,6 +1,7 @@
 //
 // Created by giuli on 16/01/2021.
 //
+#pragma once
 
 #include <stdlib.h>
 #include <stdbool.h>

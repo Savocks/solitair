@@ -3,7 +3,7 @@ project(solitair)               # Create project "simple_example"
 set(CMAKE_C_STANDARD 11)            # Enable c++14 standard
 set(CMAKE_BUILD_TYPE Debug)
 # Add main.cpp file of project root directory as source file
-set(SOURCE_FILES main.c lib/card/card.c lib/card/card.h lib/foundation/foundation.c lib/foundation/foundation.h lib/discard_pile/discard_pile.c lib/discard_pile/discard_pile.h lib/stock/stock.c lib/stock/stock.h lib/deck/deck.c lib/deck/deck.h lib/pile/pile.c lib/pile/pile.h)
+set(SOURCE_FILES main.c lib/card/card.c lib/card/card.h lib/foundation/foundation.c lib/foundation/foundation.h lib/discard_pile/discard_pile.c lib/discard_pile/discard_pile.h lib/stock/stock.c lib/stock/stock.h lib/deck/deck.c lib/deck/deck.h lib/pile/pile.c lib/pile/pile.h lib/osmosis/osmosis.c lib/osmosis/osmosis.h)
 
 find_package(Curses REQUIRED)
 include_directories(${CURSES_INCLUDE_DIR})

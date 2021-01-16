@@ -231,6 +231,33 @@ lib/foundation/foundation.c.s:
 	$(MAKE) -f CMakeFiles/solitair.dir/build.make CMakeFiles/solitair.dir/lib/foundation/foundation.c.s
 .PHONY : lib/foundation/foundation.c.s
 
+lib/osmosis/osmosis.o: lib/osmosis/osmosis.c.o
+
+.PHONY : lib/osmosis/osmosis.o
+
+# target to build an object file
+lib/osmosis/osmosis.c.o:
+	$(MAKE) -f CMakeFiles/solitair.dir/build.make CMakeFiles/solitair.dir/lib/osmosis/osmosis.c.o
+.PHONY : lib/osmosis/osmosis.c.o
+
+lib/osmosis/osmosis.i: lib/osmosis/osmosis.c.i
+
+.PHONY : lib/osmosis/osmosis.i
+
+# target to preprocess a source file
+lib/osmosis/osmosis.c.i:
+	$(MAKE) -f CMakeFiles/solitair.dir/build.make CMakeFiles/solitair.dir/lib/osmosis/osmosis.c.i
+.PHONY : lib/osmosis/osmosis.c.i
+
+lib/osmosis/osmosis.s: lib/osmosis/osmosis.c.s
+
+.PHONY : lib/osmosis/osmosis.s
+
+# target to generate assembly for a file
+lib/osmosis/osmosis.c.s:
+	$(MAKE) -f CMakeFiles/solitair.dir/build.make CMakeFiles/solitair.dir/lib/osmosis/osmosis.c.s
+.PHONY : lib/osmosis/osmosis.c.s
+
 lib/pile/pile.o: lib/pile/pile.c.o
 
 .PHONY : lib/pile/pile.o
@@ -333,6 +360,9 @@ help:
 	@echo "... lib/foundation/foundation.o"
 	@echo "... lib/foundation/foundation.i"
 	@echo "... lib/foundation/foundation.s"
+	@echo "... lib/osmosis/osmosis.o"
+	@echo "... lib/osmosis/osmosis.i"
+	@echo "... lib/osmosis/osmosis.s"
 	@echo "... lib/pile/pile.o"
 	@echo "... lib/pile/pile.i"
 	@echo "... lib/pile/pile.s"

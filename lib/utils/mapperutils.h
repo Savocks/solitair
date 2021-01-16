@@ -1,6 +1,7 @@
 //
 // Created by giuli on 23/10/2020.
 //
+#pragma once
 
 #define SPADE "♠"
 #define CLUB "♣"

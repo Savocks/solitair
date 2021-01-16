@@ -16,7 +16,7 @@
 #include <stdbool.h>
 #include <memory.h>
 
-#include "printer.h"
+#include "../lib/utils/printer.h"
 #include "utils.h"
 
 s_osmosis* createOsmosisGame();

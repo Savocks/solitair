@@ -10,28 +10,7 @@ void startGame();
 void shuffle(s_card *array, int n);
 
 
-void displayMenu() {
-    int choice = 0;
-    printf("Ciao, benvenuto in Osmosi Solitaire\n");
-    do {
-        printf("Fai la tua scelta!\n");
-        printf("1 - Nuova Partita");
-        printf("\n");
-        printf("2 - Regole del gioco");
-        printf("\n");
-        printf("3 - Esci dal gioco");
-        printf("\n");
-        scanf("%d", &choice);
-        switch (choice) {
-            case 1:
-                startGame();
-                break;
-            case 2:
-                printRules();
-                break;
-        }
-    } while (choice != 3);
-}
+
 
 void startGame() {
     printf("Buona fortuna");
