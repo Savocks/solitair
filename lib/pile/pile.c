@@ -42,6 +42,7 @@ Card* pile_pop(Pile* pile) {
     if (!pile_is_empty(pile)) {
         return &pile->pile_cards[pile->top_card--];
     }
+    return NULL;
 }
 
 
@@ -50,6 +51,7 @@ Card* pile_peek(Pile* pile)
 {
     if (!pile_is_empty(pile))
         return &pile->pile_cards[pile->top_card];
+    return NULL;
 }
 
 void test_function() {
