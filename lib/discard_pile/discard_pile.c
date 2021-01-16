@@ -39,6 +39,7 @@ Card* discard_pile_pop(DiscardPile* discard_pile) {
     if (!discard_pile_is_empty(discard_pile)) {
         return &discard_pile->discard_pile_cards[discard_pile->top_card--];
     }
+    return NULL;
 }
 
 
@@ -47,4 +48,5 @@ Card* discard_pile_peek(DiscardPile* discard_pile)
 {
     if (!discard_pile_is_empty(discard_pile))
         return &discard_pile->discard_pile_cards[discard_pile->top_card];
+    return NULL;
 }

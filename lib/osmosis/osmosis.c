@@ -75,7 +75,6 @@ void display_menu() {
                 start_game();
                 break;
             case 2:
-                print_rules();
                 break;
         }
     } while (choice != 3);

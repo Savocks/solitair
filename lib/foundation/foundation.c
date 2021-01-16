@@ -40,6 +40,7 @@ Card* foundation_pop(Foundation* foundation) {
     if (!foundation_is_empty(foundation)) {
         return &foundation->foundation_cards[foundation->top_card--];
     }
+    return NULL;
 }
 
 
@@ -48,4 +49,5 @@ Card* foundation_peek(Foundation* foundation)
 {
     if (!foundation_is_empty(foundation))
         return &foundation->foundation_cards[foundation->top_card];
+    return NULL;
 }
