@@ -42,7 +42,7 @@ static void fill_deck(Deck* deck) {
 
 
 Deck* deck_constructor(void) {
-    Deck* deck = calloc(1, sizeof(deck));
+    Deck* deck = calloc(1, sizeof(Deck));
     if(deck == NULL) { exit(1); };
 
     deck->deck_cards = calloc(MAX_DECK_CARD, sizeof(deck->deck_cards) * MAX_DECK_CARD);
