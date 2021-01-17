@@ -7,6 +7,7 @@
 
 Osmosis* osmosis_constructor() {
     Osmosis* osmosis = calloc(1, sizeof(Osmosis));
+    init_game_elements(osmosis);
     return osmosis;
 }
 
