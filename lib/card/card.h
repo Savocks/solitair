@@ -1,7 +1,6 @@
-//
-// Created by giuli on 10/01/2021.
-//
 #pragma once
+
+#include <stdbool.h>
 
 #ifndef SOLITAIR_CARD_H
 #define SOLITAIR_CARD_H
@@ -27,3 +26,4 @@ void card_initialize_card_values(Card* this, int color, int value, int seed);
 
 void card_print_card_values(Card* this);
 
+bool card_is_valid(Card* this);

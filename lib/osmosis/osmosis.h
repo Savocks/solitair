@@ -40,6 +40,18 @@ void deal_cards(Osmosis* game);
 
 void prepare_game(Osmosis* game);
 
+void check_remaining_moves(Osmosis* game);
+
+bool move_card(Osmosis* game, Card* card_to_move);
+
+void move_card_from_pile(Osmosis* game, Pile* pile);
+
+void move_card_from_discard_pile(Osmosis* game, DiscardPile* discard_pile);
+
+void flip_card(Osmosis* game);
+
+void reset_deck(Osmosis* game);
+
 void start_game(void);
 
 void display_menu();

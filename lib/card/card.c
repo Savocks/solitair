@@ -1,7 +1,3 @@
-//
-// Created by giuli on 10/01/2021.
-//
-
 #include <stdlib.h>
 #include <stdio.h>
 #include "card.h"
@@ -47,4 +43,11 @@ void card_initialize_card_values(Card* this, int value, int color, int seed) {
 
 void card_print_card_values(Card* this) {
     printf("Value: %d\tColor: %d\tSeed: %d\n", card_get_value(this), card_get_color(this), card_get_seed(this));
+}
+
+bool card_is_valid(Card* this) {
+    if (this->seed > 0 && this->seed < 5 &&
+        this->value > 0 && this->value < 14 &&
+        this->color > 0 && this->color < 5)
+        return true;
 }

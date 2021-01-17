@@ -1,7 +1,3 @@
-//
-// Created by giuli on 10/01/2021.
-//
-
 #include <stdlib.h>
 #include <stdio.h>
 #include "deck.h"

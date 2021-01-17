@@ -70,6 +70,6 @@ char* concat(char *s1, char *s2)
     return result;
 }
 
-char* getCardValueAndSuit(int value, int suit) {
-    return concat(transformValueCard(value), transformSuitCard(suit));
+char* getCardValueAndSuit(Card* card) {
+    return concat(transformValueCard(card->value), transformSuitCard(card->seed));
 }

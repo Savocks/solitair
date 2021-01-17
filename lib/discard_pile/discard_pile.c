@@ -1,15 +1,16 @@
-//
-// Created by giuli on 10/01/2021.
-//
-
+#define MAX_DISCARD_PILE 35
 #include "discard_pile.h"
 
 DiscardPile* discard_pile_constructor(unsigned capacity)
 {
     DiscardPile* discard_pile = calloc(1, sizeof(DiscardPile));
+    if(discard_pile == NULL) { exit(1); };
+
+    discard_pile->discard_pile_cards = calloc(MAX_DISCARD_PILE, sizeof(Card));
+    if(discard_pile->discard_pile_cards == NULL) { exit(1); };
+
     discard_pile->capacity = capacity;
     discard_pile->top_card = -1;
-    discard_pile->discard_pile_cards = calloc(discard_pile->capacity, sizeof(Card));
     return discard_pile;
 }
 
