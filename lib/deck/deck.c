@@ -35,7 +35,9 @@ static void fill_deck(Deck* deck) {
         for (int card_value = 1; card_value <= MAX_SUIT_CARD; card_value++) {
             Card* current_card = card_constructor();
             card_initialize_card_values(current_card, card_value, suit_number, suit_number);
-            deck_push(deck, current_card);
+            if (card_is_valid(current_card)) {
+                deck_push(deck, current_card);
+            }
         }
     }
 }
