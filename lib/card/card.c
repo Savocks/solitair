@@ -15,7 +15,7 @@ static void card_set_color(Card* this, int color) {
 }
 
 Card* card_constructor(void) {
-    Card* card = malloc(sizeof(Card));
+    Card* card = calloc(1, sizeof(Card));
     if(card == NULL) { exit(1); };
     card->value = 0;
     card->color = 0;
