@@ -51,3 +51,9 @@ bool card_is_valid(Card* this) {
         this->color > 0 && this->color < 5)
         return true;
 }
+
+void card_reset_values(Card* card) {
+    card->color = 0;
+    card->seed = 0;
+    card->value = 0;
+}

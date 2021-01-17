@@ -86,17 +86,24 @@ bool move_card(Osmosis* game, Card* card_to_move) {
 
 void move_card_from_pile(Osmosis* game, Pile* pile) {
     Card* card_to_move = pile_peek(pile);
-    if (move_card(game, card_to_move))
-        if (pile->top_card > 0)
+    if (move_card(game, card_to_move)) {
+        if (pile->top_card >= 0) {
             pile_pop(pile);
+
+        }
+    }
+    check_remaining_moves(game);
+
 }
 
 void move_card_from_discard_pile(Osmosis* game, DiscardPile* discard_pile) {
     Card* card_to_move = discard_pile_peek(discard_pile);
     if (discard_pile->top_card == -1) {
         return;
-    } else if (move_card(game, card_to_move))
+    } else if (move_card(game, card_to_move)) {
         discard_pile_pop(discard_pile);
+    }
+    check_remaining_moves(game);
 }
 
 void flip_card(Osmosis* game) {

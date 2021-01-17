@@ -22,13 +22,45 @@ void print_board_row(Pile* pile, Foundation* foundation);
 
 
 void print_rules(void) {
-    printf("SCOPO DEL GIOCO");
-    printf("\n");
     printf("Spostare tutte le carte nelle pile di base.\n");
-    printf("REGOLE:\n");
-    printf("4 PILE DI BASE (al centro):\n");
+    printf("\n");
+    printf("Regole\n");
+    printf("\n");
+    printf("4 pile di base (al centro)\n");
+    printf("\n");
+    printf("Costruire file di carte per seme senza tener conto del valore.\n");
+    printf("Nella pila di base superiore è possibile mettere qualsiasi carta dello stesso seme della prima carta distribuita dal mazzo.\n");
+    printf("Nelle pile di base inferiori, si mette dapprima una carta dello stesso valore della prima carta della pila di base superiore, e poi su di essa qualsiasi carta dello stesso seme ma solo se nella pila di sopra è presente già una carta dello stesso valore.\n");
+    printf("4 pile di riserva (a sinistra dalle pile di base)\n");
+    printf("\n");
+    printf("La carta superiore può essere messa nella pila di base.\n");
+    printf("Tallone (in basso a destra)\n");
+    printf("\n");
+    printf("Le carte dal tallone vanno al pozzo una alla volta.\n");
+    printf("Ridistribuzioni illimitate.\n");
+    printf("Pozzo (accanto al tallone)\n");
+    printf("\n");
+    printf("La carta superiore può essere messa nella pila di base.\n");
+    printf("Spostare tutte le carte nelle pile di base.\n");
+    printf("\n");
+    printf("Regole\n");
+    printf("\n");
+    printf("•4 pile di base (al centro)\n");
+    printf("\n");
     printf("-Costruire file di carte per seme senza tener conto del valore.\n");
-    printf("-Nella pila di base superiore � possibile mettere qualsiasi carta dello stesso seme della prima carta distribuita dal mazzo.\n");
+    printf("-Nella pila di base superiore è possibile mettere qualsiasi carta dello stesso seme della prima carta distribuita dal mazzo.\n");
+    printf("-Nelle pile di base inferiori, si mette dapprima una carta dello stesso valore della prima carta della pila di base superiore, e poi su di essa qualsiasi carta dello stesso \n");
+    printf("  seme ma solo se nella pila di sopra è presente già una carta dello stesso valore.\n");
+    printf("•4 pile di riserva (a sinistra dalle pile di base)\n");
+    printf("\n");
+    printf("La carta superiore può essere messa nella pila di base.\n");
+    printf("Tallone (in basso a destra)\n");
+    printf("\n");
+    printf("Le carte dal tallone vanno al pozzo una alla volta.\n");
+    printf("Ridistribuzioni illimitate.\n");
+    printf("Pozzo (accanto al tallone)\n");
+    printf("\n");
+    printf("La carta superiore può essere messa nella pila di base.");
 }
 
 void print_game_commands(void) {

@@ -27,3 +27,5 @@ void card_initialize_card_values(Card* this, int color, int value, int seed);
 void card_print_card_values(Card* this);
 
 bool card_is_valid(Card* this);
+
+void card_reset_values(Card* this);
