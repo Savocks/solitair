@@ -10,6 +10,14 @@
 stdbool.h
 -
 
+/mnt/c/Users/giuli/CLionProjects/solitair/lib/deck/deck.c
+stdlib.h
+-
+stdio.h
+-
+deck.h
+/mnt/c/Users/giuli/CLionProjects/solitair/lib/deck/deck.h
+
 /mnt/c/Users/giuli/CLionProjects/solitair/lib/deck/deck.h
 time.h
 -

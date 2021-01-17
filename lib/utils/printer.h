@@ -42,8 +42,8 @@ void print_game_commands(void) {
 }
 
 void print_board_row(Pile* pile, Foundation* foundation) {
-    printf("(%zu)%s\t %s %s %s %s %s %s %s %s %s %s %s %s %s\n",
-           pile->capacity - 1, getCardValueAndSuit(&pile->pile_cards[pile->top_card]),
+    printf("(%d)%s\t %s %s %s %s %s %s %s %s %s %s %s %s %s\n",
+           pile->top_card + 1, getCardValueAndSuit(&pile->pile_cards[pile->top_card]),
            getCardValueAndSuit(&foundation->foundation_cards[0]),
            getCardValueAndSuit(&foundation->foundation_cards[1]),
            getCardValueAndSuit(&foundation->foundation_cards[2]),
@@ -67,8 +67,9 @@ void print_deck_row(DiscardPile* discard_pile, Deck* deck) {
                getCardValueAndSuit(deck_peek(deck))
         );
     } else {
-        printf("\t\t\t\t%s\t%s\n",
+        printf("\t\t\t\t%s\t(%d)%s\n",
                getCardValueAndSuit(discard_pile_peek(discard_pile)),
+               deck->top_card + 1,
                getCardValueAndSuit(deck_peek(deck))
         );
     }
